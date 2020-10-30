@@ -36,7 +36,7 @@ else %windowstate was added in 2018b
 end
 
 %display background image
-[oasisImg, ~, ~] = imread('oasisJPG.jpg');
+[oasisImg, ~, ~] = imread('C:\Users\surya.vezhavendan\Documents\oasisJPG.jpg'); %put file location of whatever background image you want 
 oasisAx = axes(oasisImageDisplay, 'Units','norm', 'ButtonDownFcn', 'close(fakelockFig); close(oasisFig)'); %TODO: this won't work... not super important though
 oasisImg = flip(oasisImg, 1);
 
@@ -44,6 +44,7 @@ pause(1) %the axes wont expand for some reason without this pause!!!
 oasisAx.InnerPosition = [0, 0, 1, 1]; %eliminate the margins for labels
 oasisAx.Position = [0, 0, 1, 1]; %eliminate the margins for labels
 
+figure(oasisFig)
 oasisAx.Units = 'pixels';
 image(oasisAx, 'CData', imresize(oasisImg, [1999 1999])); %for some reason 1999x1999 is full screen on my monitor... this number can't be larger than monitor btw. and i know my monitor isnt 1999x1999 (ITS NOT A SQUARE) so maybe it has to do with fullscreen tag?
 oasisAx.Visible = 'off';
