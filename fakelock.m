@@ -36,13 +36,12 @@ else %windowstate was added in 2018b
 end
 
 %display background image
-[bgImg, ~, ~] = imread('C:\Users\surya.vezhavendan\Documents\oasisJPG.jpg'); %put file location of whatever background image you want 
-bgAx = axes(bgImageDisplay, 'Units','norm', 'ButtonDownFcn', 'close(fakelockFig); close(bgFig)'); %TODO: this won't work... not super important though
+[bgImg, ~, ~] = imread('C:\Users\surya.vezhavendan\Documents\oasisJPG.jpg'); %put file location of whatever background image you want
 bgImg = flip(bgImg, 1);
 
-pause(1) %the axes wont expand for some reason without this pause!!!
-bgAx.InnerPosition = [0, 0, 1, 1]; %eliminate the margins for labels
-bgAx.Position = [0, 0, 1, 1]; %eliminate the margins for labels
+bgAx = axes(bgImageDisplay, 'Units','norm', 'InnerPosition', [0, 0, 1, 1], 'ButtonDownFcn', 'close(fakelockFig); close(bgFig)'); %TODO: this won't work... not super important though
+pause(.4) %the axes wont expand for some reason without this pause!!!
+% bgAx.InnerPosition = [0, 0, 1, 1]; %eliminate the margins for labels
 
 figure(bgFig)
 bgAx.Units = 'pixels';
